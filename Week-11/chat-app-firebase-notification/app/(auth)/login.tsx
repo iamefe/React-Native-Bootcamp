@@ -1,4 +1,5 @@
 import { FIREBASE_AUTH } from "@/config/FirebaseConfig";
+import { registerForPushNotificationsAsync } from "@/utils/NotificationService";
 import { Link, useRouter } from "expo-router";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
@@ -11,8 +12,19 @@ const LoginScreen = () => {
 
   const handleLogin = async () => {
     try {
-      await signInWithEmailAndPassword(FIREBASE_AUTH, email, password);
-      console.log("Login is successful");
+      const userCrediential = await signInWithEmailAndPassword(
+        FIREBASE_AUTH,
+        email,
+        password
+      );
+      console.log("Login is successful", userCrediential.user);
+
+      // Get the push notification token
+      const pushToken = await registerForPushNotificationsAsync();
+      if (pushToken) {
+        console.log("User's push token: ", pushToken);
+      }
+
       router.replace("/(tabs)/groups");
     } catch (error) {
       console.error("Login error:", error);
