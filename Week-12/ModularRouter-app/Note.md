@@ -1,4 +1,4 @@
-Building a Modular structure improves maintainability, scalability, and reusability. Here's how we will approach it:
+Building a Modular structured App improves maintainability, scalability, and reusability. Here's how we will approach it:
 
 ---
 
@@ -43,7 +43,6 @@ ModularApp/
 │   ├── constants.ts
 │   └── helpers.ts
 ├── App.tsx            # Main entry point
-├── index.ts           # App initialization
 └── tsconfig.json      # TypeScript configuration
 ```
 
@@ -58,9 +57,7 @@ ModularApp/
 3. **Scalability:** Adding features becomes easier as new modules can plug into the structure seamlessly.
 4. **Readability**: Each module has a single responsibility, making the project easy to understand.
 
-### **2. Folder Structure for Expo Router**
-
-Here’s the enhanced folder structure:
+### **5. Folder Structure for Expo Router**
 
 ```
 
@@ -96,6 +93,8 @@ ModularApp/
 1. **Scalable Navigation**: Adding new screens is as simple as creating a new file or folder.
 2. **Modular Design**: Separates concerns (components, hooks, utilities) for better maintainability.
 3. **File-Based Routing**: Simplifies navigation logic and reduces boilerplate code.
+
+### **8. Typical Folder Structures**
 
 Here are three typical folder structures for your requirements, designed with **Expo Router**. Each structure follows best practices for scalability, readability, and maintainability.
 
@@ -201,6 +200,10 @@ utils/
 
 ```
 
-###
+### **Key Notes**
+
+- `drawer/\_layout.tsx`: Manages the drawer and navigation.
+- `Drawer.tsx`: Custom drawer component.
+- Add a toggle button in the `Header.tsx` to open/close the drawer.
 
 ---
